@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author        Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
  * @copyright (c) 19.02.2018, Webcraftic
  */
-class WUPM_Plugin extends Wbcr_Factory474_Plugin {
+class WUPM_Plugin extends Wbcr_Factory480_Plugin {
 
 	/**
 	 * @see self::app()
-	 * @var Wbcr_Factory474_Plugin
+	 * @var Wbcr_Factory480_Plugin
 	 */
 	private static $app;
 
@@ -46,6 +46,13 @@ class WUPM_Plugin extends Wbcr_Factory474_Plugin {
 		}
 
 		add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
+
+		// Wordpress 6.7 fix
+		add_action( 'init', function () {
+			if ( is_admin() ) {
+				$this->register_pages();
+			}
+		} );
 	}
 
 	/**
@@ -57,7 +64,7 @@ class WUPM_Plugin extends Wbcr_Factory474_Plugin {
 	 * Используется для получения настроек плагина, информации о плагине, для доступа к вспомогательным
 	 * классам.
 	 *
-	 * @return \Wbcr_Factory474_Plugin|\WUPM_Plugin
+	 * @return \Wbcr_Factory480_Plugin|\WUPM_Plugin
 	 */
 	public static function app() {
 		return self::$app;
@@ -70,10 +77,6 @@ class WUPM_Plugin extends Wbcr_Factory474_Plugin {
 	 * @throws \Exception
 	 */
 	public function plugins_loaded() {
-		if ( is_admin() ) {
-			$this->register_pages();
-		}
-
 		require( WUPM_PLUGIN_DIR . '/includes/classes/class-configurate-updates.php' );
 		new WUPM_ConfigUpdates( self::$app );
 	}

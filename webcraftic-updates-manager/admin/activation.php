@@ -5,7 +5,7 @@
  *
  * @author        Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
  * @copyright (c) 09.09.2017, Webcraftic
- * @see           Factory474_Activator
+ * @see           Factory480_Activator
  */
 
 // Exit if accessed directly
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WUPM_Activation extends Wbcr_Factory474_Activator {
+class WUPM_Activation extends Wbcr_Factory480_Activator {
 
 	/**
 	 * Runs activation actions.

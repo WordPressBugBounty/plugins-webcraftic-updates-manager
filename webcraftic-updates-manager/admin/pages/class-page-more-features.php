@@ -16,6 +16,6 @@ if( !defined('ABSPATH') ) {
  * @author        Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
  * @copyright (c) 2018 Webraftic Ltd
  */
-class WUPM_MoreFeaturesPage extends \WBCR\Factory_Templates_127\Pages\MoreFeatures {
+class WUPM_MoreFeaturesPage extends \WBCR\Factory_Templates_134\Pages\MoreFeatures {
 
 }

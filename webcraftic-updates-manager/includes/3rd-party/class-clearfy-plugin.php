@@ -41,6 +41,13 @@ class WUPM_Plugin {
 		}
 
 		add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
+
+		// Wordpress 6.7 fix
+		add_action( 'init', function () {
+			if ( is_admin() ) {
+				$this->register_pages();
+			}
+		} );
 	}
 
 	/**
@@ -65,10 +72,6 @@ class WUPM_Plugin {
 	 * @throws \Exception
 	 */
 	public function plugins_loaded() {
-		if ( is_admin() ) {
-			$this->register_pages();
-		}
-
 		require( WUPM_PLUGIN_DIR . '/includes/classes/class-configurate-updates.php' );
 		new WUPM_ConfigUpdates( self::$app );
 	}

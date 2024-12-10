@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author        Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
  * @copyright (c) 2018 Webraftic Ltd
  */
-class WUPM_ThemesPage extends WBCR\Factory_Templates_127\Pages\PageBase {
+class WUPM_ThemesPage extends WBCR\Factory_Templates_134\Pages\PageBase {
 
 	/**
 	 * {@inheritDoc}
@@ -85,9 +85,9 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_127\Pages\PageBase {
 	private $themes_update_filters = [];
 
 	/**
-	 * @param Wbcr_Factory474_Plugin $plugin
+	 * @param Wbcr_Factory480_Plugin $plugin
 	 */
-	public function __construct( Wbcr_Factory474_Plugin $plugin ) {
+	public function __construct( Wbcr_Factory480_Plugin $plugin ) {
 		$this->menu_title = __( 'Themes', 'webcraftic-updates-manager' );
 
 		parent::__construct( $plugin );
@@ -123,7 +123,7 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_127\Pages\PageBase {
 	 *
 	 * @since 1.0.0
 	 * @return void
-	 * @see   FactoryPages474_AdminPage
+	 * @see   FactoryPages480_AdminPage
 	 *
 	 */
 	public function assets( $scripts, $styles ) {

@@ -59,15 +59,15 @@ jQuery(function($) {
 
 					if( !response || !response.success ) {
 						if( response.data.error_message ) {
-							$.wbcr_factory_templates_127.app.showNotice('Error: [' + response.data.error_message + ']', 'danger');
+							$.wbcr_factory_templates_134.app.showNotice('Error: [' + response.data.error_message + ']', 'danger');
 						}
 						return false;
 					}
 
-					/*var noticeId = $.wbcr_factory_templates_127.app.showNotice('Settings successfully updated', 'success');
+					/*var noticeId = $.wbcr_factory_templates_134.app.showNotice('Settings successfully updated', 'success');
 
 					setTimeout(function() {
-						$.wbcr_factory_templates_127.app.hideNotice(noticeId);
+						$.wbcr_factory_templates_134.app.hideNotice(noticeId);
 					}, 5000);*/
 				},
 				error: function(xhr, ajaxOptions, thrownError) {
@@ -75,7 +75,7 @@ jQuery(function($) {
 					console.log(xhr.responseText);
 					console.log(thrownError);
 
-					$.wbcr_factory_templates_127.app.showNotice('Error: [' + thrownError + '] Status: [' + xhr.status + '] Error massage: [' + xhr.responseText + ']', 'danger');
+					$.wbcr_factory_templates_134.app.showNotice('Error: [' + thrownError + '] Status: [' + xhr.status + '] Error massage: [' + xhr.responseText + ']', 'danger');
 				}
 			});
 		});
