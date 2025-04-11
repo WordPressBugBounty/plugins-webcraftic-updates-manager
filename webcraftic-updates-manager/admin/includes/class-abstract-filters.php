@@ -14,7 +14,7 @@ abstract class WUPM_AbstractFilters {
 	protected $is_disable_translation_updates;
 
 
-	function __construct( Wbcr_Factory480_Plugin $plugin ) {
+	function __construct( Wbcr_Factory483_Plugin $plugin ) {
 		$this->plugin = $plugin;
 		$this->load();
 	}

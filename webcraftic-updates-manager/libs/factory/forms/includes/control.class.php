@@ -14,14 +14,14 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms480_Control') ) {
+	if( !class_exists('Wbcr_FactoryForms483_Control') ) {
 
 		/**
 		 * The base class for all controls.
 		 *
 		 * @since 1.0.0
 		 */
-		abstract class Wbcr_FactoryForms480_Control extends Wbcr_FactoryForms480_FormElement {
+		abstract class Wbcr_FactoryForms483_Control extends Wbcr_FactoryForms483_FormElement {
 
 			/**
 			 * Is this element a control?
@@ -43,7 +43,7 @@
 			 * A provider that is used to get values.
 			 *
 			 * @since 1.0.0
-			 * @var Wbcr_IFactoryForms480_ValueProvider
+			 * @var Wbcr_IFactoryForms483_ValueProvider
 			 */
 			protected $provider = null;
 
@@ -51,7 +51,7 @@
 			 * Create a new instance of the control.
 			 *
 			 * @param mixed[] $options
-			 * @param FactoryForms480_Form $form
+			 * @param FactoryForms483_Form $form
 			 * @param null $provider
 			 * @since 1.0.0
 			 * @return void
@@ -66,7 +66,7 @@
 			 * Sets a provider for the control.
 			 *
 			 * @since 1.0.0
-			 * @param IFactoryForms480_ValueProvider $provider
+			 * @param IFactoryForms483_ValueProvider $provider
 			 * @return void
 			 */
 			public function setProvider($provider)

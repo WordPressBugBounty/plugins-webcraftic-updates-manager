@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author        Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
  * @copyright (c) 19.02.2018, Webcraftic
  */
-class WUPM_Plugin extends Wbcr_Factory480_Plugin {
+class WUPM_Plugin extends Wbcr_Factory483_Plugin {
 
 	/**
 	 * @see self::app()
-	 * @var Wbcr_Factory480_Plugin
+	 * @var Wbcr_Factory483_Plugin
 	 */
 	private static $app;
 
@@ -64,7 +64,7 @@ class WUPM_Plugin extends Wbcr_Factory480_Plugin {
 	 * Используется для получения настроек плагина, информации о плагине, для доступа к вспомогательным
 	 * классам.
 	 *
-	 * @return \Wbcr_Factory480_Plugin|\WUPM_Plugin
+	 * @return \Wbcr_Factory483_Plugin|\WUPM_Plugin
 	 */
 	public static function app() {
 		return self::$app;

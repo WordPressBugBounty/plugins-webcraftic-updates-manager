@@ -21,9 +21,9 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms480_RadioControl') ) {
+	if( !class_exists('Wbcr_FactoryForms483_RadioControl') ) {
 
-		class Wbcr_FactoryForms480_RadioControl extends Wbcr_FactoryForms480_Control {
+		class Wbcr_FactoryForms483_RadioControl extends Wbcr_FactoryForms483_Control {
 
 			public $type = 'radio';
 

@@ -1,6 +1,6 @@
 <?php
 
-use WBCR\Factory_Adverts_159\Base;
+use WBCR\Factory_Adverts_162\Base;
 
 /**
  * Factory Adverts
@@ -20,33 +20,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( defined( 'FACTORY_ADVERTS_159_LOADED' ) || ( defined( 'FACTORY_ADVERTS_BLOCK' ) && FACTORY_ADVERTS_BLOCK ) ) {
+if ( defined( 'FACTORY_ADVERTS_162_LOADED' ) || ( defined( 'FACTORY_ADVERTS_BLOCK' ) && FACTORY_ADVERTS_BLOCK ) ) {
 	return;
 }
 
 # Устанавливаем константу, что модуль уже загружен
-define( 'FACTORY_ADVERTS_159_LOADED', true );
+define( 'FACTORY_ADVERTS_162_LOADED', true );
 
 # Устанавливаем версию модуля
-define( 'FACTORY_ADVERTS_159_VERSION', '1.5.9' );
+define( 'FACTORY_ADVERTS_162_VERSION', '1.6.2' );
 
 add_action( 'init', function () {
 	# Регистрируем тектовый домен, для интернализации интерфейса модуля
-	load_plugin_textdomain( 'wbcr_factory_adverts_159', false, dirname( plugin_basename( __FILE__ ) ) . '/langs' );
+	load_plugin_textdomain( 'wbcr_factory_adverts_162', false, dirname( plugin_basename( __FILE__ ) ) . '/langs' );
 } );
 
 # Устанавливаем директорию модуля
-define( 'FACTORY_ADVERTS_159_DIR', dirname( __FILE__ ) );
+define( 'FACTORY_ADVERTS_162_DIR', dirname( __FILE__ ) );
 
 # Устанавливаем url модуля
-define( 'FACTORY_ADVERTS_159_URL', plugins_url( '', __FILE__ ) );
+define( 'FACTORY_ADVERTS_162_URL', plugins_url( '', __FILE__ ) );
 
-require_once( FACTORY_ADVERTS_159_DIR . '/includes/class-rest-request.php' );
-require_once( FACTORY_ADVERTS_159_DIR . '/includes/class-base.php' );
+require_once( FACTORY_ADVERTS_162_DIR . '/includes/class-rest-request.php' );
+require_once( FACTORY_ADVERTS_162_DIR . '/includes/class-base.php' );
 
 /**
- * @param Wbcr_Factory480_Plugin $plugin
+ * @param Wbcr_Factory483_Plugin $plugin
  */
-add_action( 'wbcr_factory_adverts_159_plugin_created', function ( $plugin ) {
-	$plugin->set_adverts_manager( "WBCR\Factory_Adverts_159\Base" );
+add_action( 'wbcr_factory_adverts_162_plugin_created', function ( $plugin ) {
+	$plugin->set_adverts_manager( "WBCR\Factory_Adverts_162\Base" );
 } );

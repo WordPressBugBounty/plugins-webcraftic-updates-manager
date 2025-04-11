@@ -1,6 +1,6 @@
 <?php
 
-namespace WBCR\Factory_Templates_134;
+namespace WBCR\Factory_Templates_137;
 
 // Exit if accessed directly
 if( !defined('ABSPATH') ) {
@@ -21,9 +21,9 @@ abstract class Configurate {
 	protected $plugin;
 
 	/**
-	 * @param \Wbcr_Factory480_Plugin $plugin
+	 * @param \Wbcr_Factory483_Plugin $plugin
 	 */
-	public function __construct(\Wbcr_Factory480_Plugin $plugin)
+	public function __construct(\Wbcr_Factory483_Plugin $plugin)
 	{
 		$this->plugin = $plugin;
 		$this->registerActionsAndFilters();

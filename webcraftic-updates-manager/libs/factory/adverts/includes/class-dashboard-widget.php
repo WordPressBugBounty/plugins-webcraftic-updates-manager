@@ -1,6 +1,6 @@
 <?php
 
-namespace WBCR\Factory_Adverts_159;
+namespace WBCR\Factory_Adverts_162;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,7 +35,7 @@ class Dashboard_Widget {
 	 *
 	 * @author Alexander Kovalev <alex.kovalevv@gmail.com>
 	 * @since  1.0.1
-	 * @var \Wbcr_Factory480_Plugin
+	 * @var \Wbcr_Factory483_Plugin
 	 */
 	private $plugin;
 
@@ -46,10 +46,10 @@ class Dashboard_Widget {
 	 *
 	 * @since 1.0.0 Added
 	 *
-	 * @param \Wbcr_Factory480_Plugin $plugin
+	 * @param \Wbcr_Factory483_Plugin $plugin
 	 * @param string                  $content
 	 */
-	public function __construct( \Wbcr_Factory480_Plugin $plugin, $content ) {
+	public function __construct( \Wbcr_Factory483_Plugin $plugin, $content ) {
 
 		$this->plugin  = $plugin;
 		$this->content = $content;
