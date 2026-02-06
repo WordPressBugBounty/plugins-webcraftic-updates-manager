@@ -46,17 +46,11 @@ require_once( FACTORY_483_DIR . '/includes/assets-managment/class-factory-assets
 require_once( FACTORY_483_DIR . '/includes/assets-managment/class-factory-script-list.php' );
 require_once( FACTORY_483_DIR . '/includes/assets-managment/class-factory-style-list.php' );
 
-// PREMIUM
-require_once( FACTORY_483_DIR . '/includes/premium/class-factory-license-interface.php' );
-require_once( FACTORY_483_DIR . '/includes/premium/class-factory-provider-abstract.php' );
-require_once( FACTORY_483_DIR . '/includes/premium/class-factory-manager.php' );
-
 // UPDATES
 require_once( FACTORY_483_DIR . '/includes/updates/repositories/class-factory-repository-abstract.php' );
 require_once( FACTORY_483_DIR . '/includes/updates/repositories/class-factory-wordpress.php' );
 require_once( FACTORY_483_DIR . '/includes/updates/repositories/class-factory-github.php' );
 require_once( FACTORY_483_DIR . '/includes/updates/class-factory-upgrader.php' );
-require_once( FACTORY_483_DIR . '/includes/updates/class-factory-premium-upgrader.php' );
 
 require_once( FACTORY_483_DIR . '/includes/class-factory-plugin-abstract.php' );
 

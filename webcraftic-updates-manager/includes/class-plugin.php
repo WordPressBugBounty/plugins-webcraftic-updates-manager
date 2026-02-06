@@ -53,6 +53,21 @@ class WUPM_Plugin extends Wbcr_Factory483_Plugin {
 				$this->register_pages();
 			}
 		} );
+
+		add_filter( 'themeisle_sdk_products', array( __CLASS__, 'register_sdk' ) );
+	}
+
+	/**
+	 * Register product into SDK.
+	 *
+	 * @param array $products All products.
+	 *
+	 * @return array Registered product.
+	 */
+	public static function register_sdk( $products ) {
+		$products[] = WUPM_PLUGIN_FILE;
+
+		return $products;
 	}
 
 	/**
@@ -99,7 +114,6 @@ class WUPM_Plugin extends Wbcr_Factory483_Plugin {
 		self::app()->registerPage( 'WUPM_PluginsPage', $admin_path . '/class-page-plugins.php' );
 		self::app()->registerPage( 'WUPM_ThemesPage', $admin_path . '/class-page-themes.php' );
 		self::app()->registerPage( 'WUPM_AdvancedPage', $admin_path . '/class-page-advanced.php' );
-		self::app()->registerPage( 'WUPM_MoreFeaturesPage', $admin_path . '/class-page-more-features.php' );
 	}
 
 	/**

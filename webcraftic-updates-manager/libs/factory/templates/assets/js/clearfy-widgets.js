@@ -1,14 +1,9 @@
 jQuery(function($) {
 	$('#wbcr-factory-subscribe-widget__subscribe-form').submit(function(e) {
 		e.preventDefault();
-		var agree = $(this).find('[name=agree_terms]:checked'),
-			pluginName = $('#wbcr-factory-subscribe-widget__plugin-name').val(),
-			email = $('#wbcr-factory-subscribe-widget__email').val(),
-			groupId = $('#wbcr-factory-subscribe-widget__group-id').val();
 
-		if( agree.length === 0 ) {
-			return;
-		}
+		const pluginName = $('#wbcr-factory-subscribe-widget__plugin-name').val();
+		const email = $('#wbcr-factory-subscribe-widget__email').val();
 
 		$.ajax({
 			method: "POST",
@@ -17,7 +12,6 @@ jQuery(function($) {
 			data: {
 				action: 'wbcr-clearfy-subscribe-for-' + pluginName,
 				email: email,
-				group_id: groupId,
 				plugin_name: pluginName,
 				_wpnonce: $(this).data('nonce')
 			},
@@ -39,7 +33,7 @@ jQuery(function($) {
 				if( response.data ) {
 					$(".wbcr-factory-subscribe-widget__text").hide();
 
-					if( response.data.subscribed ) {
+					if( response.success ) {
 						$(".wbcr-factory-subscribe-widget__text--success").show();
 					} else {
 						$(".wbcr-factory-subscribe-widget__text--success2").show();

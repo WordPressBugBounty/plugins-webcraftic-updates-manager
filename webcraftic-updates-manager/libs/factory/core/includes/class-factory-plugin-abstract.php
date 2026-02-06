@@ -129,11 +129,6 @@ abstract class Wbcr_Factory483_Plugin extends Wbcr_Factory483_Base {
 		// INIT PLUGIN NOTICES
 		$this->init_plugin_notices();
 
-		// INIT PLUGIN PREMIUM FEATURES
-		// License manager should be installed earlier
-		// so that other modules can access it.
-		$this->init_plugin_premium_features();
-
 		// INIT PLUGIN UPDATES
 		$this->init_plugin_updates();
 
@@ -229,25 +224,6 @@ abstract class Wbcr_Factory483_Plugin extends Wbcr_Factory483_Base {
 	{
 		if( empty($this->logger) ) {
 			$this->logger = new $class_name($this, $settings);
-		}
-	}
-
-	/**
-	 * Устанавливает класс провайдера лицензий
-	 *
-	 * С помощью этого класса, мы проверяем валидность лицензий и получаем дополнительную информацию
-	 * о лицензии и ее покупателе. Класс используется в премиум менеджере.
-	 *
-	 * @param string $name Имя провайдер
-	 * @param string $class_name Имя класса провайдера
-	 *
-	 * @since  4.1.6 - Добавлен
-	 *
-	 */
-	public function set_license_provider($name, $class_name)
-	{
-		if( !isset(WBCR\Factory_483\Premium\Manager::$providers[$name]) ) {
-			WBCR\Factory_483\Premium\Manager::$providers[$name] = $class_name;
 		}
 	}
 
@@ -874,33 +850,6 @@ abstract class Wbcr_Factory483_Plugin extends Wbcr_Factory483_Base {
 	{
 		if( $this->has_updates ) {
 			new WBCR\Factory_483\Updates\Upgrader($this);
-		}
-	}
-
-	/**
-	 * Начинает инициализацию лицензирования текущего плагина. Доступ к менеджеру лицензий можно
-	 * получить через свойство license_manager.
-	 *
-	 * Дополнительно создает рабочего, чтобы совершить апгрейд до премиум версии
-	 * и запустить проверку обновлений для этого модуля.
-	 *
-	 * @throws Exception
-	 * @since 4.1.1
-	 */
-	protected function init_plugin_premium_features()
-	{
-		if( !$this->has_premium || !$this->license_settings ) {
-			$this->premium = null;
-
-			return;
-		}
-
-		// Создаем экземляр премиум менеджера, мы сможем к нему обращаться глобально.
-		$this->premium = WBCR\Factory_483\Premium\Manager::instance($this, $this->license_settings);
-
-		// Подключаем премиум апгрейдер
-		if( isset($this->license_settings['has_updates']) && $this->license_settings['has_updates'] ) {
-			new WBCR\Factory_483\Updates\Premium_Upgrader($this);
 		}
 	}
 }

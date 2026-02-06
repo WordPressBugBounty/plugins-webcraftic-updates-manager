@@ -37,62 +37,6 @@
   background: #fff;
   padding: 20px;
 }
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-activate-premium {
-  display: inline-block;
-  cursor: pointer;
-  line-height: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #353535;
-  background: #e8e8e8;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-activate-premium:active {
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-activate-premium:focus {
-  outline: none;
-  border: 0;
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-purchase-premium {
-  display: inline-block;
-  cursor: pointer;
-  line-height: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #755c0e;
-  background: #fdd868;
-  box-shadow: 0 1px 0 rgba(60, 45, 2, 0.31);
-  -moz-box-shadow: 0 1px 0 rgba(60, 45, 2, 0.31);
-  -webkit-box-shadow: 0 1px 0 rgba(60, 45, 2, 0.31);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-purchase-premium:active {
-  box-shadow: inset 0 1px 0 rgba(60, 45, 2, 0.31);
-  -moz-box-shadow: inset 0 1px 0 rgba(60, 45, 2, 0.31);
-  -webkit-box-shadow: inset 0 1px 0 rgba(60, 45, 2, 0.31);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-templates-137-multisite-suggetion .wbcr-factory-purchase-premium:focus {
-  outline: none;
-  border: 0;
-}
 #WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-right-sidebar-section .wbcr-factory-templates-137-pro-suggettion {
   background: #fff;
   color: #353535;
@@ -132,34 +76,6 @@
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-right-sidebar-section .wbcr-factory-templates-137-pro-suggettion .wbcr-factory-purchase-premium {
-  display: block;
-  cursor: pointer;
-  line-height: 16px;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 12px 20px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #353535;
-  background: #e8e8e8;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-right-sidebar-section .wbcr-factory-templates-137-pro-suggettion .wbcr-factory-purchase-premium:active {
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-#WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-right-sidebar-section .wbcr-factory-templates-137-pro-suggettion .wbcr-factory-purchase-premium:focus {
-  outline: none;
-  border: 0;
 }
 #WBCR .wbcr-factory-subscribe-widget {
   margin-top: 0 !important;
@@ -246,15 +162,6 @@
     border-width: 0 0.2em 0.2em 0;
     left: 0;
     margin-right: 10px;
-  }
-  #WBCR .wbcr-factory-templates-137-impressive-page-template .wbcr-factory-right-sidebar-section .wbcr-factory-templates-137-pro-suggettion .wbcr-factory-purchase-premium {
-    font-weight: 700;
-    line-height: 16px;
-    font-size: 12px;
-    padding: 8px 12px;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
   }
 }
 /*# sourceMappingURL=clearfy-base.css.map */

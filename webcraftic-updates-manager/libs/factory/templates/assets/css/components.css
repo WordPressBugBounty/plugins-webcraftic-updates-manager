@@ -105,10 +105,6 @@
   text-transform: uppercase;
   z-index: 1;
 }
-#WBCR .wbc-factory-templates-137-components .plugin-card.premium {
-  border-color: #e8d7b2;
-  background-color: #fff9eb;
-}
 #WBCR .wbc-factory-templates-137-components .plugin-card.plugin-status-deactive {
   background-color: #f1f1f1;
 }
@@ -123,9 +119,6 @@
 }
 #WBCR .wbc-factory-templates-137-components .plugin-card.plugin-status-deactive .desc {
   color: #afafaf;
-}
-#WBCR .wbc-factory-templates-137-components .plugin-card.plugin-status-deactive.premium {
-  background-color: #f9f2f1;
 }
 @media screen and (max-width: 1750px) {
   #WBCR .wbc-factory-templates-137-components .plugin-card {

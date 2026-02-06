@@ -106,13 +106,6 @@ if ( ! class_exists( 'WBCR\Factory_Templates_137\ImpressiveLite' ) ) {
 
             <div class="wbcr-factory-page-header">
                 <div class="wbcr-factory-header-logo"><?php echo $this->getPluginTitle(); ?>
-                    <span class="version"><?php echo $this->plugin->getPluginVersion() ?> </span>
-					<?php if ( $this->show_page_title ): ?>
-                        <span class="dash">/</span>
-                        <div class="wbcr-factory-header-title">
-                            <h2><?php echo $this->getPageTitle() ?></h2>
-                        </div>
-					<?php endif; ?>
                 </div>
                 <div class="wbcr-factory-control">
 					<?php do_action( 'wbcr/factory/pages/impressive_lite/header', $this->plugin->getPluginName() ) ?>

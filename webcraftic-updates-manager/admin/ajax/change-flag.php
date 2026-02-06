@@ -9,6 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * ajax action for switch option
  */
 function wbcr_upm_change_flag() {
+	// Verify nonce for CSRF protection
+	check_ajax_referer( 'wbcr-upm-ajax-nonce', 'nonce' );
+
 	if ( ! current_user_can( 'install_plugins' ) ) {
 		wp_die( - 1, 403 );
 	}
@@ -28,7 +31,7 @@ function wbcr_upm_change_flag() {
 	$new_value = (bool) $app->request->post( 'value' );
 
 	if ( empty( $slug ) or empty( $flag ) ) {
-		wp_send_json_error( [ 'error_message' => __( 'Required arguments of slug, flag is empty!', 'webcraftic-updates-manager' ) ] );
+		wp_send_json_error( [ 'error_message' => __( 'Required arguments slug and flag are empty!', 'webcraftic-updates-manager' ) ] );
 	}
 
 	if ( $is_theme ) {
@@ -40,7 +43,7 @@ function wbcr_upm_change_flag() {
 	$method = ( ( $new_value ) ? 'disable' : 'enable' ) . $flag;
 
 	if ( ! method_exists( $plugin_filters, $method ) ) {
-		wp_send_json_error( [ 'error_message' => __( 'Method %s is not found!', 'webcraftic-updates-manager' ) ] );
+		wp_send_json_error( [ 'error_message' => __( 'Unable to complete action. Please refresh the page and try again.', 'webcraftic-updates-manager' ) ] );
 	}
 
 	$plugin_filters->$method( $slug );

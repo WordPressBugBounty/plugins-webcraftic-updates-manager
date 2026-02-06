@@ -105,7 +105,6 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 	 * @return mixed[]
 	 */
 	public function getPageOptions() {
-		$is_premium = defined( 'WUPMP_PLUGIN_ACTIVE' );
 		$options    = [];
 
 		$options[] = [
@@ -123,7 +122,7 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 				[ 'enable_plugin_auto_updates', __( 'Enable auto updates', 'webcraftic-updates-manager' ) ],
 				[ 'disable_plugin_updates', __( 'Disable updates', 'webcraftic-updates-manager' ) ]
 			],
-			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
+			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
 			'hint'    => __( 'You can disable all plugin updates or choose manual or automatic update mode.', 'webcraftic-updates-manager' ),
 			'default' => 'enable_plugin_monual_updates'
 		];
@@ -138,7 +137,7 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 				[ 'enable_theme_auto_updates', __( 'Enable auto updates', 'webcraftic-updates-manager' ) ],
 				[ 'disable_theme_updates', __( 'Disable updates', 'webcraftic-updates-manager' ) ]
 			],
-			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
+			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
 			'hint'    => __( 'You can disable all themes updates or choose manual or automatic update mode.', 'webcraftic-updates-manager' ),
 			'default' => 'enable_theme_monual_updates'
 		];
@@ -148,7 +147,7 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 			'way'     => 'buttons',
 			'name'    => 'auto_tran_update',
 			'title'   => __( 'Disable Automatic Translation Updates', 'webcraftic-updates-manager' ),
-			//'layout' => array('hint-type' => 'icon', 'hint-icon-color' => 'grey'),
+			//'layout' => array('hint-type' => 'icon', 'hint-icon-color' => 'green'),
 			//'hint' => __('', 'webcraftic-updates-manager') . '<br><br><b>Clearfy: </b>' . __('', 'webcraftic-updates-manager'),
 			'default' => false,
 		];
@@ -173,8 +172,8 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 					__( 'Allow development auto updates', 'webcraftic-updates-manager' )
 				]
 			],
-			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
-			'hint'    => __( 'You can disable all core WordPress updates, or disable only automatic updates. Also you can select the update mode. By default (minor)', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Major - automatically update to major releases (e.g., 4.1, 4.2, 4.3).', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Minor - automatically update to minor releases (e.g., 4.1.1, 4.1.2, 4.1.3)..', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Development - update automatically to Bleeding Edge releases.', 'webcraftic-updates-manager' ),
+			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
+			'hint'    => __( 'You can disable all core WordPress updates, or disable only automatic updates. Also you can select the update mode. By default (minor)', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Major - automatically update to major releases (e.g., 4.1, 4.2, 4.3).', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Minor - automatically update to minor releases (e.g., 4.1.1, 4.1.2, 4.1.3).', 'webcraftic-updates-manager' ) . '<br>-' . __( 'Development - update automatically to pre-release development versions.', 'webcraftic-updates-manager' ),
 			'default' => 'allow_minor_core_auto_updates',
 			'events'  => [
 				'disable_core_updates'          => [
@@ -200,8 +199,8 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 			'way'     => 'buttons',
 			'name'    => 'enable_update_vcs',
 			'title'   => __( 'Enable updates for VCS Installations', 'webcraftic-updates-manager' ),
-			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
-			'hint'    => __( 'Enable Automatic Updates even if a VCS folder (.git, .hg, .svn) was found in the WordPress directory', 'webcraftic-updates-manager' ),
+			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
+			'hint'    => __( 'Enable Automatic Updates even if a version control system folder (VCS) (.git, .hg, .svn) was found in the WordPress directory', 'webcraftic-updates-manager' ),
 			'default' => false,
 		];
 
@@ -209,17 +208,15 @@ class WUPM_UpdatesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 			'type'    => 'checkbox',
 			'way'     => 'buttons',
 			'name'    => 'updates_nags_only_for_admin',
-			'title'   => __( 'Updates nags only for Admin', 'webcraftic-updates-manager' ),
+			'title'   => __( 'Show Update Notifications Only to Administrators', 'webcraftic-updates-manager' ),
 			'layout'  => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
-			'hint'    => __( 'This plugin allows you to hide the update WordPress reminder from all users that are not assumed Administrators (cannot upgrade plugins).
-
-If you have multiple users then this means those who are not admins don’t need to see the message. Useful for CMS based sites, so the client doesn’t see the notice.', 'webcraftic-updates-manager' ),
+			'hint'    => __( 'Hide WordPress update notifications from non-administrator users. Useful for multi-user or client-facing CMS sites.', 'webcraftic-updates-manager' ),
 			'default' => false,
 		];
 
 		$options[] = [
 			'type' => 'html',
-			'html' => '<div class="wbcr-factory-page-group-header"><strong>' . __( 'Email Notifications', 'webcraftic-updates-manager' ) . '</strong><p>' . __( 'Email notifications are send once a day, you can choose what notifications to send below.', 'webcraftic-updates-manager' ) . '</p></div>'
+			'html' => '<div class="wbcr-factory-page-group-header"><strong>' . __( 'Email Notifications', 'webcraftic-updates-manager' ) . '</strong><p>' . __( 'Email notifications are sent once a day, you can choose what notifications to send below.', 'webcraftic-updates-manager' ) . '</p></div>'
 		];
 
 		$options[] = [
@@ -228,9 +225,9 @@ If you have multiple users then this means those who are not admins don’t need
 			'name'     => 'notify_update_available',
 			'title'    => __( 'Update available', 'webcraftic-updates-manager' ),
 			'hint'     => __( 'Send me emails when an update is available.', 'webcraftic-updates-manager' ),
-			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
+			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
 			'default'  => false,
-			'cssClass' => ( ! $is_premium ) ? [ 'factory-checkbox-disabled wbcr-upm-icon-pro' ] : [],
+			'cssClass' => [],
 		];
 
 		$options[] = [
@@ -239,9 +236,9 @@ If you have multiple users then this means those who are not admins don’t need
 			'name'     => 'notify_updated',
 			'title'    => __( 'Successful update', 'webcraftic-updates-manager' ),
 			'hint'     => __( 'Send me emails when something has been updated.', 'webcraftic-updates-manager' ),
-			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
+			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
 			'default'  => false,
-			'cssClass' => ( ! $is_premium ) ? [ 'factory-checkbox-disabled wbcr-upm-icon-pro' ] : [],
+			'cssClass' => [],
 		];
 
 		$options[] = [
@@ -249,15 +246,15 @@ If you have multiple users then this means those who are not admins don’t need
 			'way'       => 'buttons',
 			'name'      => 'notify_email',
 			'title'     => __( 'Email address', 'webcraftic-updates-manager' ),
-			'hint'      => __( 'Seperate email addresses using commas.', 'webcraftic-updates-manager' ),
+			'hint'      => __( 'Separate email addresses using commas.', 'webcraftic-updates-manager' ),
 			'default'   => $this->plugin->isNetworkActive() ? get_site_option( 'admin_email' ) : get_option( 'admin_email' ),
-			'htmlAttrs' => ( ! $is_premium ) ? [ 'disabled' => 'disabled' ] : [],
+			'htmlAttrs' => [],
 
 		];
 
 		$options[] = [
 			'type' => 'html',
-			'html' => '<div class="wbcr-factory-page-group-header factory-control-disable_core_notifications"><strong>' . __( 'Core notifications', 'webcraftic-updates-manager' ) . '</strong><p>' . __( 'Core notifications are handled by WordPress and not by this plugin. You can only disable them, changing your email address in the settings above will not affect these notifications.', 'webcraftic-updates-manager' ) . '</p></div>'
+			'html' => '<div class="wbcr-factory-page-group-header factory-control-disable_core_notifications"><strong>' . __( 'Core notifications', 'webcraftic-updates-manager' ) . '</strong><p>' . __( 'Core notifications are handled by WordPress itself. You can only disable them; email address changes above won\'t affect these notifications.', 'webcraftic-updates-manager' ) . '</p></div>'
 		];
 
 		$options[] = [
@@ -265,10 +262,10 @@ If you have multiple users then this means those who are not admins don’t need
 			'way'      => 'buttons',
 			'name'     => 'disable_core_notifications',
 			'title'    => __( 'Core notifications', 'webcraftic-updates-manager' ),
-			'hint'     => __( 'By default wordpress sends an email when a core update happend. Uncheck this box to disable these emails.', 'webcraftic-updates-manager' ),
-			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'grey' ],
+			'hint'     => __( 'By default WordPress sends an email when a core update happened. Uncheck this box to disable these emails.', 'webcraftic-updates-manager' ),
+			'layout'   => [ 'hint-type' => 'icon', 'hint-icon-color' => 'green' ],
 			'default'  => true,
-			'cssClass' => ( ! $is_premium ) ? [ 'factory-checkbox-disabled wbcr-upm-icon-pro' ] : [],
+			'cssClass' => [],
 		];
 
 		$formOptions = [];

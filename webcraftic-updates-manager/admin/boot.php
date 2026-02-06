@@ -11,27 +11,6 @@ require_once WUPM_PLUGIN_DIR . '/admin/includes/class-plugin-filters.php';
 require_once WUPM_PLUGIN_DIR . '/admin/includes/class-theme-filters.php';
 
 if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
-	function wbcr_upm_set_plugin_meta( $links, $file ) {
-		if ( $file == WUPM_PLUGIN_BASE ) {
-
-			$url = 'https://clearfy.pro';
-
-			if ( get_locale() == 'ru_RU' ) {
-				$url = 'https://ru.clearfy.pro';
-			}
-
-			$url .= '?utm_source=wordpress.org&utm_campaign=' . WUPM_Plugin::app()->getPluginName();
-
-			$links[] = '<a href="' . $url . '" style="color: #FF5722;font-weight: bold;" target="_blank">' . __( 'Get ultimate plugin free', 'webcraftic-updates-manager' ) . '</a>';
-		}
-
-		return $links;
-	}
-
-	if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
-		add_filter( 'plugin_row_meta', 'wbcr_upm_set_plugin_meta', 10, 2 );
-	}
-
 	/**
 	 * Rating widget url
 	 *
@@ -42,7 +21,7 @@ if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
 	 */
 	function wbcr_upm_rating_widget_url( $page_url, $plugin_name ) {
 		if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) && ( $plugin_name == WUPM_Plugin::app()->getPluginName() ) ) {
-			return 'https://goo.gl/Be2hQU';
+			return 'https://wordpress.org/support/plugin/webcraftic-updates-manager/reviews/#new-post';
 		}
 
 		return $page_url;
@@ -87,7 +66,7 @@ if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
 		];
 		$options[] = [
 			'name'   => 'wp_update_core',
-			'title'  => __( 'Disable wordPress core updates', 'webcraftic-updates-manager' ),
+			'title'  => __( 'Disable WordPress core updates', 'webcraftic-updates-manager' ),
 			'tags'   => [ 'disable_all_updates' ],
 			'values' => [ 'disable_all_updates' => 'disable_core_updates' ]
 		];
@@ -98,12 +77,12 @@ if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
 		];
 		$options[] = [
 			'name'  => 'plugins_update_filters',
-			'title' => __( 'Plugin filters', 'webcraftic-updates-manager' ),
+			'title' => __( 'Plugin Update Filters', 'webcraftic-updates-manager' ),
 			'tags'  => []
 		];
 		$options[] = [
 			'name'  => 'updates_nags_only_for_admin',
-			'title' => __( 'Updates nags only for Admin', 'webcraftic-updates-manager' ),
+			'title' => __( 'Show Update Notifications Only to Administrators', 'webcraftic-updates-manager' ),
 			'tags'  => [ 'recommended' ]
 		];
 		$options[] = [
@@ -113,7 +92,7 @@ if ( ! defined( 'LOADING_UPDATES_MANAGER_AS_ADDON' ) ) {
 		];
 		$options[] = [
 			'name'  => 'notify_updated',
-			'title' => __( 'Notify me when update successful installed', 'webcraftic-updates-manager' ),
+			'title' => __( 'Notify me when updates are successfully installed', 'webcraftic-updates-manager' ),
 			'tags'  => []
 		];
 		$options[] = [
@@ -150,7 +129,7 @@ function wbcr_upm_admin_conflict_notices_error( $notices, $plugin_name ) {
 	$warnings = [];
 
 	$default_notice = WUPM_Plugin::app()->getPluginTitle() . ': ' . __( 'We found that you have the plugin %s installed. The functions of this plugin already exist in %s. Please deactivate plugin %s to avoid conflicts between plugins\' functions.', 'webcraftic-updates-manager' );
-	$default_notice .= ' ' . __( 'If you do not want to deactivate the plugin %s for some reason, we strongly recommend do not use the same plugins\' functions at the same time!', 'webcraftic-updates-manager' );
+	$default_notice .= ' ' . __( 'If you do not want to deactivate the plugin %s for some reason, we strongly recommend that you do not use the same plugins\' functions at the same time!', 'webcraftic-updates-manager' );
 
 	if ( is_plugin_active( 'companion-auto-update/companion-auto-update.php' ) ) {
 		$warnings[] = sprintf( $default_notice, 'Companion Auto Update', WUPM_Plugin::app()->getPluginTitle(), 'Companion Auto Update', 'Companion Auto Update' );
@@ -190,8 +169,11 @@ function wbcr_upm_admin_conflict_notices_error( $notices, $plugin_name ) {
 add_filter( 'wbcr/factory/admin_notices', 'wbcr_upm_admin_conflict_notices_error', 10, 2 );
 
 /**
- * Подключаем скрипты для создания лейблов для списка плагинов
+ * Removed: Status icons/labels display on plugins list page
+ * The code below was previously used to add visual status indicators
+ * to the plugins list, but has been removed for UI cleanup.
  */
+/*
 add_action( 'admin_enqueue_scripts', function ( $handles ) {
 	if ( ! current_user_can( 'install_plugins' ) || ! in_array( $handles, [ 'plugins.php', 'plugins-network.php' ] ) ) {
 		return;
@@ -201,9 +183,6 @@ add_action( 'admin_enqueue_scripts', function ( $handles ) {
 	wp_enqueue_script( 'wbcr-upm-plugins-js', WUPM_PLUGIN_URL . '/admin/assets/js/plugins.js', [ 'jquery' ], WUPM_Plugin::app()->getPluginVersion() );
 } );
 
-/**
- * Добавляем код локализации скриптов для создания лейблов в списке плагинов
- */
 add_action( 'admin_footer', function () {
 	if ( ! current_user_can( 'install_plugins' ) || ! in_array( get_current_screen()->id, [
 			'plugins',
@@ -236,3 +215,4 @@ add_action( 'admin_footer', function () {
     </script>
 	<?php
 } );
+*/

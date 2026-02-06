@@ -100,7 +100,7 @@ class WUPM_AdvancedPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 		parent::warningNotice();
 
 		if ( isset( $_GET['wbcr_force_update'] ) ) {
-			$concat = __( 'Please, wait 90 sec. to see the forced automatic update result.', 'webcraftic-updates-manager' ) . '<br>';
+			$concat = __( 'Please wait 90 seconds while the update check runs. The page will refresh automatically with the results.', 'webcraftic-updates-manager' ) . '<br>';
 
 			$this->printWarningNotice( $concat );
 		}
@@ -111,12 +111,15 @@ class WUPM_AdvancedPage extends WBCR\Factory_Templates_137\Pages\PageBase {
         <div style="padding: 20px;">
             <h4><?php _e( 'Force Automatic Updates', 'webcraftic-updates-manager' ); ?></h4>
             <p><?php _e( 'This will attempt to force automatic updates. This is useful for debugging.', 'webcraftic-updates-manager' ); ?></p>
-            <a href="<?php $this->actionUrl( 'force-plugins-update' ) ?>" class="button button-default"><?php _e( 'Force update', 'webcraftic-updates-manager' ); ?></a>
+            <a href="<?php echo esc_url( wp_nonce_url( $this->getActionUrl( 'force-plugins-update' ), $this->getResultId() . '_force_update' ) ); ?>" class="button button-default"><?php _e( 'Force Update Check', 'webcraftic-updates-manager' ); ?></a>
         </div>
 		<?php
 	}
 
 	public function forcePluginsUpdateAction() {
+		// Verify nonce for CSRF protection
+		check_admin_referer( $this->getResultId() . '_force_update' );
+
 		if ( ! current_user_can( 'install_plugins' ) ) {
 			return;
 		}

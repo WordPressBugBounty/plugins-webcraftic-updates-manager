@@ -1,78 +1,104 @@
-=== Disable updates, Updates manager, Disable automatic updates ===
-Tags: disable updates, automatic updates, disable updates manager, easy updates manager, update control, updates manager, webcraftic update manager, wp disable, clearfy, Easy Updates Manager, Clearfy – disable unused features</strong>, WP Disables Updates, Companion Auto Update, Disable All WordPress Updates, WP Updates Settings, WP Disable Automatic Updates
-Contributors: webcraftic, creativemotion, alexkovalevv
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VDX7JNTQPNPFW
+=== Disable Updates - Updates Manager, Disable Automatic Updates, Disable All Updates ===
+Tags: disable updates, disable automatic updates, updates manager, disable plugin updates, disable core updates
+Contributors: themeisle
 Requires at least: 5.6
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2
 
-Disables the theme, plugin and core update checking, the related cronjobs and notification system.
+Disable updates and automatic updates for WordPress core, plugins, and themes, with the option to disable plugin or theme updates individually.
 
 == Description ==
-Webcraftic Updates Manager is a light yet powerful plugin which enables you to manage all types of updates on your single site install.
-With loads of settings making endless possibilities for configuration, Webcraftic Updates Manager is an obvious choice for anyone wanting to take control of their websites updates.
 
-FEATURES INCLUDE
+Disable Updates is a lightweight updates manager that gives you full control over how and when updates run on your site. You can disable all updates, turn off automatic updates, or manage updates individually for WordPress core, plugins, and themes.
 
-<strong>Disable all updates</strong> – This setting quite easily just overrides all other settings and disables everything.
+### Key Features
 
-<strong>Disable updates of the WordPress Core</strong> - This setting is used to toggle on and off the WordPress core updates.
+= Disable Plugin Updates =
 
-<strong>Disable plugins updates</strong> – This setting is used to disable all plugins updates on your website.
+You can disable plugin updates globally or manage them on a per-plugin basis. This allows you to prevent update notifications for all plugins or selectively disable updates only for specific plugins you want to keep unchanged.
 
-<strong>Disable themes updates</strong> – This setting is used to disable all theme updates on your website.
+The plugin also lets you disable automatic plugin updates, giving you full control over which plugins update automatically and which ones require manual approval.
 
-<strong>Enable Major Releases</strong> – This setting toggles whether or not you want the major WordPress core versions to automatically update themselves.
+= Disable Theme Updates =
 
-<strong>Enable Minor Releases</strong> – This setting toggles whether or not you want the minor WordPress core versions to automatically update themselves.
+You can disable theme updates entirely or control them individually for each theme. This is especially useful if you are using custom themes or child themes where updates could overwrite changes.
 
-<strong>Enable Development Updates</strong> – This setting toggles whether or not you want the bleeding edge version of WordPress to automatically update itself.
+You can also disable automatic theme updates or allow automatic updates only for selected themes, depending on your workflow.
 
-<strong>Enable automatic plugins updates</strong> – This setting can either automatically update all your plugins, or automatically update any select plugins you want.
+= Disable WordPress Core Updates =
 
-<strong>Enable automatic themes updates</strong> – This setting can either automatically update all your themes, or automatically update any select themes you want.
+Take control of WordPress core updates by disabling them completely or managing how they are applied. You can choose to disable all core updates or fine-tune automatic updates by release type.
 
-<strong>Disable translation updates</strong> – This setting can unable automatic updating for translation updates.
+Options include:
 
-<strong>Disable automatic updates for plugins.</strong>
+- Disable WordPress core updates entirely
+- Disable automatic core updates
+- Allow automatic updates for major releases
+- Allow automatic updates for minor releases
+- Allow automatic development updates
 
-<strong>Disable automatic updates for themes.</strong>
+This gives you full control over how WordPress itself updates on your site.
 
-<strong>Disable automatic updates for core.</strong>
+= Additional Features =
 
-Some functions are taken from the following popular plugins <strong>Easy Updates Manager</strong>, <strong>Clearfy – disable unused features</strong>, <strong>WP Disables Updates</strong>, <strong>Companion Auto Update</strong>, <strong>Disable All WordPress Updates</strong>, <strong>WP Updates Settings</strong>, <strong>WP Disable Automatic Updates</strong>
+- Disable translation updates
+- Hide update notices for all users except admins
+- Get email notifications when updates are available or on successful update
+- Disable core update notification emails
+- Force automatic updates
 
-== Translations ==
-* English - default, always included
-* Russian
+### Support
 
-#### RECOMMENDED SEPARATE MODULES ####
-We invite you to check out a few other related free plugins that our team has also produced that you may find especially useful:
+We’re here to help. Feel free to open a new thread on the [Support Forum](https://wordpress.org/support/plugin/webcraftic-updates-manager/).
 
-* [Clearfy – WordPress optimization plugin and disable ultimate tweaker](https://wordpress.org/plugins/clearfy/)
-* [Disable Comments for Any Post Types (Remove Comments)](https://wordpress.org/plugins/comments-plus/)
-* [Cyrlitera – transliteration of links and file names](https://wordpress.org/plugins/cyrlitera/)
-* [Cyr-to-lat reloaded – transliteration of links and file names](https://wordpress.org/plugins/cyr-and-lat/ "Cyr-to-lat reloaded")
-* [Disable admin notices individually](https://wordpress.org/plugins/disable-admin-notices/ "Disable admin notices individually")
-* [WordPress Assets manager, dequeue scripts, dequeue styles](https://wordpress.org/plugins/gonzales/  "WordPress Assets manager, dequeue scripts, dequeue styles")
-* [Hide login page](https://wordpress.org/plugins/hide-login-page/ "Hide login page")
+### Useful Resources
 
-If you want to help with the translation, please contact me through this site or through the contacts inside the plugin.
+- If you like this plugin, you’re sure to love [our other plugins](https://themeisle.com/wordpress-plugins/) as well.
+- Our blog is a great place to [learn more about WordPress](https://themeisle.com/blog/).
+- Get the most out of your website with our helpful [WordPress YouTube Tutorials](https://youtube.com/playlist?list=PLmRasCVwuvpSep2MOsIoE0ncO9JE3FcKP).
+
+== Frequently Asked Questions ==
+
+= Can I disable all WordPress updates completely? =
+
+Yes. Disable Updates plugin lets you disable all updates (core, plugins and themes) entirely.
+
+= What is the difference between disabling updates and disabling automatic updates? =
+
+Disabling updates stops WordPress from checking for and offering updates at all. Disabling automatic updates only prevents updates from being installed automatically, while still allowing you to see available updates and install them manually if you choose.
+
+= Can I still see available updates if I disable automatic updates? =
+
+Yes. When you disable automatic updates only, WordPress will still show available updates for core, plugins, and themes in the dashboard. You can review and install updates manually whenever you’re ready.
+
 
 == Installation ==
-This section describes how to install the plugin and get it working.
 
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Settings->Webcrfatic update manager screen to configure the plugin
+1. In your WordPress admin, go to **Plugins > Add New**
+2. In the Search field, type **"Disable Updates"**
+3. Under "Disable Updates" by Themeisle, click the **Install Now** link
+4. Once the process is complete, click the **Activate Plugin** link
+5. Go to **Settings → Updates manager** to configure the plugin
 
 == Screenshots ==
-1. Control panel (Base options)
-2. Control panel (Individualy updates)
+1. General settings for disabling updates
+2. Disable plugin updates individually
+3. Disable theme updates individually
 
 == Changelog ==
+
+####   Version 1.3.0 (2026-01-12)
+
+- Disable Updates joins Themeisle – The plugin has been acquired by Themeisle, ensuring continued development and support. No action is required.
+- Moved all PRO features to the free version
+- Simplified settings interface
+- Removed status icons from Plugins list
+- Enhanced security
+
+
+
 = 1.2.0 (10.04.2025) =
 * Added: Compatibility with Wordpress 6.8
 * Fixed: Security issue

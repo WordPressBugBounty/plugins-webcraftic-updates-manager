@@ -106,11 +106,11 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 		$concat = '';
 
 		if ( $this->is_disable_updates ) {
-			$concat .= __( '- To disable updates individually choose the “Manual or automatic theme updates” option then save settings and comeback to this page.', 'webcraftic-updates-manager' ) . '<br>';
+			$concat .= __( '- To disable individual updates, choose "Manual or automatic theme updates", save, and return to this page.', 'webcraftic-updates-manager' ) . '<br>';
 		}
 
 		if ( ! $this->is_auto_updates ) {
-			$concat .= __( '- To configure theme auto updates individually, choose the “Enable auto updates” option then save settings and comeback to this page.', 'webcraftic-updates-manager' );
+			$concat .= __( '- To configure individual auto updates, choose "Enable auto updates", save, and return to this page.', 'webcraftic-updates-manager' );
 		}
 
 		if ( ! empty( $concat ) ) {
@@ -130,6 +130,9 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 		parent::assets( $scripts, $styles );
 		$this->styles->add( WUPM_PLUGIN_URL . '/admin/assets/css/general.css' );
 		$this->scripts->add( WUPM_PLUGIN_URL . '/admin/assets/js/ajax-components.js' );
+
+		// Localize script with nonce for AJAX security
+		wp_localize_script( 'wbcr-factory-templates-137-global', 'wbcr_upm_ajax_nonce', wp_create_nonce( 'wbcr-upm-ajax-nonce' ) );
 
 		// Add Clearfy styles for HMWP pages
 		if ( defined( 'WCL_PLUGIN_ACTIVE' ) ) {
@@ -334,13 +337,12 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 				}
 			}
 		}
-		$is_premium = defined( 'WUPMP_PLUGIN_ACTIVE' );
 
 		?>
         <div class="wbcr-factory-page-group-header">
-            <strong<?= ( ! $is_premium ? ' class="wbcr-upm-group-header-pro"' : '' ); ?>><?php _e( 'Themes list', 'webcraftic-updates-manager' ) ?></strong>
+            <strong><?php _e( 'Themes list', 'webcraftic-updates-manager' ) ?></strong>
             <p>
-				<?php _e( 'This page you can individually disable theme updates and auto updates.', 'webcraftic-updates-manager' ) ?>
+				<?php _e( 'On this page, you can individually disable theme updates and auto-updates.', 'webcraftic-updates-manager' ) ?>
             </p>
         </div>
         <style>
@@ -355,7 +357,7 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
         <form method="post" style="padding: 20px;">
 			<?php wp_nonce_field( $this->getResultId() . '_form' ) ?>
             <p>
-                <select name="wbcr_upm_bulk_actions" id="wbcr_upm_bulk_actions" <?= ( ! $is_premium ? 'disabled' : '' ); ?>>
+                <select name="wbcr_upm_bulk_actions" id="wbcr_upm_bulk_actions">
                     <option value="0"><?php _e( 'Bulk actions', 'webcraftic-updates-manager' ); ?></option>
                     <option value="disable_updates"><?php _e( 'Disable updates', 'webcraftic-updates-manager' ); ?></option>
                     <option value="enable_updates"><?php _e( 'Enable updates', 'webcraftic-updates-manager' ); ?></option>
@@ -364,9 +366,9 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
                     <option value="disable_translation_updates"><?php _e( 'Disable translation updates', 'webcraftic-updates-manager' ); ?></option>
                     <option value="enable_translation_updates"><?php _e( 'Enable translation updates', 'webcraftic-updates-manager' ); ?></option>
                 </select>
-                <input type="submit" name="wbcr_upm_apply" id="wbcr_upm_apply" class='button button-alt' value='<?php _e( "Apply", "webcraftic-updates-manager" ); ?>' <?= ( ! $is_premium ) ? 'disabled' : ''; ?>>
+                <input type="submit" name="wbcr_upm_apply" id="wbcr_upm_apply" class='button button-alt' value='<?php _e( "Apply Changes", "webcraftic-updates-manager" ); ?>'>
             </p>
-            <table class="wp-list-table wbcr-upm-list-table-pro widefat autoupdate striped plugins <?= ( ! $is_premium ? "wbcr-upm-column-premium" : "" ); ?>">
+            <table class="wp-list-table wbcr-upm-list-table-pro widefat autoupdate striped plugins">
                 <thead>
                 <tr>
                     <th id='cb' class='manage-column column-cb check-column'>
@@ -429,10 +431,10 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 					}
 
 					?>
-                    <tr id="post-<?= esc_attr( $slug_hash ) ?>" class="<?= $class ?>">
+                    <tr id="post-<?= esc_attr( $slug_hash ) ?>" class="<?= esc_attr( $class ) ?>">
                         <td scope="row" class="check-column">
-                            <label class="screen-reader-text" for="cb-select-<?= esc_attr( $slug_hash ) ?>"><?php _e( 'Select', 'webcraftic-updates-manager' ) ?><?= esc_html( $name ) ?></label>
-                            <input id="cb-select-<?= esc_attr( $slug_hash ) ?>" class="wbcr_um_select_item" type="checkbox" name="theme_slugs[]" value="<?= esc_attr( $actual_slug ) ?>" <?= ( ! $is_premium ? 'disabled' : '' ); ?>>
+                            <label class="screen-reader-text" for="cb-select-<?= esc_attr( $slug_hash ) ?>"><?php _e( 'Select Items', 'webcraftic-updates-manager' ) ?><?= esc_html( $name ) ?></label>
+                            <input id="cb-select-<?= esc_attr( $slug_hash ) ?>" class="wbcr_um_select_item" type="checkbox" name="theme_slugs[]" value="<?= esc_attr( $actual_slug ) ?>">
                             <label></label>
                             <div class="locked-indicator"></div>
                         </td>
@@ -450,9 +452,6 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
 								if ( $is_disable_updates ) {
 									$checked = true;
 								}
-								if ( ! $is_premium ) {
-									$disabled = true;
-								}
 								?>
                                 <button type="button" class="btn btn-default btn-small btn-sm factory-on <?= ( $checked ? 'active' : '' ); ?>" <?= ( $disabled ? 'disabled' : '' ); ?>><?php _e( 'On', 'webcraftic-updates-manager' ); ?></button>
                                 <button type="button" class="btn btn-default btn-small btn-sm factory-off <?= ( ! $checked ) ? 'active' : ''; ?>" data-value="0" <?= ( $disabled ? 'disabled' : '' ); ?>><?php _e( 'Off', 'webcraftic-updates-manager' ); ?></button>
@@ -462,10 +461,10 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
                         </td>
                         <!-- отключить авто-обновления -->
                         <td class="column-flags">
-                            <div class="factory-checkbox factory-from-control-checkbox factory-buttons-way btn-group <?= 'group-' . $slug_hash; ?>  <?= ( ! $is_premium or ! $this->is_auto_updates ) ? 'global-disabled' : ''; ?>">
+                            <div class="factory-checkbox factory-from-control-checkbox factory-buttons-way btn-group <?= 'group-' . $slug_hash; ?>  <?= ( ! $this->is_auto_updates ) ? 'global-disabled' : ''; ?>">
 								<?php
 								$disabled = false;
-								if ( ! $is_premium or ! $this->is_auto_updates or $is_disable_updates ) {
+								if ( ! $this->is_auto_updates or $is_disable_updates ) {
 									$disabled = true;
 								}
 								$checked = false;
@@ -481,10 +480,10 @@ class WUPM_ThemesPage extends WBCR\Factory_Templates_137\Pages\PageBase {
                         </td>
                         <!-- отключить обновления переводов -->
                         <td class="column-flags">
-                            <div class="factory-checkbox factory-from-control-checkbox factory-buttons-way btn-group <?= 'group-' . $slug_hash; ?> <?= ( ! $is_premium or $this->is_disable_translation_updates ) ? 'global-disabled' : ''; ?>">
+                            <div class="factory-checkbox factory-from-control-checkbox factory-buttons-way btn-group <?= 'group-' . $slug_hash; ?> <?= ( $this->is_disable_translation_updates ) ? 'global-disabled' : ''; ?>">
 								<?php
 								$disabled = false;
-								if ( ! $is_premium or $is_disable_updates or $this->is_disable_translation_updates ) {
+								if ( $is_disable_updates or $this->is_disable_translation_updates ) {
 									$disabled = true;
 								}
 								$checked = false;

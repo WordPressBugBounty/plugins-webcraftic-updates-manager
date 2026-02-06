@@ -81,8 +81,6 @@ if ( is_admin() ) {
 		require( FACTORY_TEMPLATES_137_DIR . '/pages/templates/impressive/class-pages.php' );
 		require( FACTORY_TEMPLATES_137_DIR . '/pages/templates/impressive-lite/class-page-template-impressive-lite.php' );
 
-		require( FACTORY_TEMPLATES_137_DIR . '/pages/class-page-more-features.php' );
-		require( FACTORY_TEMPLATES_137_DIR . '/pages/class-page-license.php' );
 		require( FACTORY_TEMPLATES_137_DIR . '/pages/class-pages-components.php' );
 
 		require( FACTORY_TEMPLATES_137_DIR . '/pages/setup-parts/class-step.php' );

@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Webcraftic Updates manager
+ * Plugin Name: Updates manager
  * Plugin URI: https://wordpress.org/plugins/webcraftic-updates-manager/
  * Description: Manage all your WordPress updates, automatic updates, logs, and loads more.
- * Author: Webcraftic <wordpress.webraftic@gmail.com>
- * Version: 1.2.0
+ * Author: Themeisle
+ * Version: 1.3.0
  * Text Domain: webcraftic-updates-manager
  * Domain Path: /languages/
- * Author URI: https://webcraftic.com
+ * Author URI: https://themeisle.com
  * Framework Version: FACTORY_483_VERSION
  */
 
@@ -43,7 +43,7 @@ require_once(dirname(__FILE__) . '/libs/factory/core/includes/class-factory-requ
 $wupm_plugin_info = [
 	'prefix' => 'wbcr_updates_manager_',//wbcr_upm_
 	'plugin_name' => 'wbcr_updates_manager',
-	'plugin_title' => 'Webcraftic Updates Manager',
+	'plugin_title' => 'Updates Manager',
 
 	// PLUGIN SUPPORT
 	'support_details' => [
@@ -105,6 +105,7 @@ define('WUPM_PLUGIN_VERSION', $wupm_compatibility->get_plugin_version());
 define('WUPM_PLUGIN_DIR', dirname(__FILE__));
 define('WUPM_PLUGIN_BASE', plugin_basename(__FILE__));
 define('WUPM_PLUGIN_URL', plugins_url('', __FILE__));
+define( 'WUPM_PLUGIN_FILE', __FILE__ );
 
 
 
@@ -127,7 +128,7 @@ try {
 	define('WUPM_PLUGIN_THROW_ERROR', true);
 
 	$wupm_plugin_error_func = function () use ($e) {
-		$error = sprintf("The %s plugin has stopped. <b>Error:</b> %s Code: %s", 'Webcraftic Updates manager', $e->getMessage(), $e->getCode());
+		$error = sprintf("The %s plugin has stopped. <b>Error:</b> %s Code: %s", 'Updates manager', $e->getMessage(), $e->getCode());
 		echo '<div class="notice notice-error"><p>' . $error . '</p></div>';
 	};
 

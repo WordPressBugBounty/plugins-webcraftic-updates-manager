@@ -140,6 +140,15 @@ if ( ! class_exists( 'Wbcr_Factory483_Requirements' ) ) {
 			}
 
 			add_action( 'admin_init', array( $this, 'register_notices' ) );
+
+			add_action( 'init', array( $this, 'register_plugin_title' ) );
+		}
+
+		/**
+		 * Register plugin title.
+		 */
+		public function register_plugin_title() {
+			$this->plugin_title = __( 'Updates Manager', 'webcraftic-updates-manager' );
 		}
 
 		public function get_plugin_version() {

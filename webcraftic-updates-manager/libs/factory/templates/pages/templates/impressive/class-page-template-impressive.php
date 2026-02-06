@@ -600,14 +600,7 @@ if ( ! class_exists( 'WBCR\Factory_Templates_137\Impressive' ) ) {
             </style>
             <div class="wbcr-factory-page-header">
                 <div class="wbcr-factory-header-logo"><?php echo $this->getPluginTitle(); ?>
-                    <span class="version"><?php echo $this->plugin->getPluginVersion() ?> </span>
-					<?php if ( $this->show_page_title ): ?><span class="dash">—</span><?php endif; ?>
                 </div>
-				<?php if ( $this->show_page_title ): ?>
-                    <div class="wbcr-factory-header-title">
-                        <h2><?php _e( 'Page' ) ?>: <?php echo $this->getPageTitle() ?></h2>
-                    </div>
-				<?php endif; ?>
                 <div class="wbcr-factory-control">
 					<?php do_action( 'wbcr/factory/pages/impressive/header', $this->plugin->getPluginName() ) ?>
 
@@ -646,16 +639,9 @@ if ( ! class_exists( 'WBCR\Factory_Templates_137\Impressive' ) ) {
 			if ( empty( $widgets ) ) {
 				return;
 			}
-			?>
-            <div class="row">
-            <div class="wbcr-factory-top-sidebar">
-				<?php foreach ( $widgets as $widget_content ): ?>
-                    <div class="col-sm-4">
-						<?php echo $widget_content ?>
-                    </div>
-				<?php endforeach; ?>
-            </div>
-			<?php
+			foreach ( $widgets as $widget_content ) {
+				echo wp_kses_post( $widget_content );
+			}
 		}
 
 		/**

@@ -97,14 +97,6 @@ class Components extends \WBCR\Factory_Templates_137\Pages\PageBase {
 
 		$notices[] = [
 			'conditions' => [
-				'wbcr-force-update-components-error' => 'inactive_licence'
-			],
-			'type' => 'danger',
-			'message' => __('To use premium components, you need activate a license!', 'wbcr_factory_templates_137') . '<a href="admin.php?page=license-wbcr_clearfy" class="btn btn-gold">' . __('Activate license', 'wbcr_factory_templates_137') . '</a>'
-		];
-
-		$notices[] = [
-			'conditions' => [
 				'wbcr-force-update-components-error' => 'unknown_error'
 			],
 			'type' => 'danger',
@@ -228,7 +220,7 @@ class Components extends \WBCR\Factory_Templates_137\Pages\PageBase {
 					</div>
 					<div class="plugin-card-bottom">
 						<?php if( !(isset($component['disable_button']) && $component['disable_button']) ): ?>
-							<?php if( 'premium' === $component['build'] && !($this->plugin->premium->is_activate() && $this->plugin->premium->is_install_package()) ): ?>
+							<?php if( 'premium' === $component['build'] ): ?>
 								<a target="_blank" href="<?php echo esc_url($component['url']) ?>" class="button button-default install-now"><?php _e('Read more', 'wbcr_factory_templates_137'); ?></a>
 							<?php else: ?>
 								<?php $delete_button->render_button(); ?><?php $install_button->render_button(); ?>

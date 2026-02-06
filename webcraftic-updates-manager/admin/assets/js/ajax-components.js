@@ -23,6 +23,7 @@ jQuery(function($) {
 
 			var data = {};
 			data['action'] = 'wbcr-upm-change-flag';
+			data['nonce'] = wbcr_upm_ajax_nonce;
 			data['theme'] = $(this).data('theme-slug');
 			if( !data['theme'] ) {
 				data['plugin'] = $(this).data('plugin-slug');
