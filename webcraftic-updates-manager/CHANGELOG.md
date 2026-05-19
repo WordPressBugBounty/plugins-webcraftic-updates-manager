@@ -1,3 +1,7 @@
+#####   Version 1.3.1 (2026-05-19)
+
+- Updated dependencies
+
 ####   Version 1.3.0 (2026-01-12)
 
 - Disable Updates joins Themeisle – The plugin has been acquired by Themeisle, ensuring continued development and support. No action is required.

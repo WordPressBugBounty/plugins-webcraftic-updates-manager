@@ -1,10 +1,10 @@
 === Disable Updates - Updates Manager, Disable Automatic Updates, Disable All Updates ===
-Tags: disable updates, disable automatic updates, updates manager, disable plugin updates, disable core updates
+Tags: disable updates, update control, automatic updates, version control, plugin management
 Contributors: themeisle
 Requires at least: 5.6
-Tested up to: 6.8
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2
 
 Disable updates and automatic updates for WordPress core, plugins, and themes, with the option to disable plugin or theme updates individually.
@@ -88,6 +88,13 @@ Yes. When you disable automatic updates only, WordPress will still show availabl
 3. Disable theme updates individually
 
 == Changelog ==
+
+#####   Version 1.3.1 (2026-05-19)
+
+- Updated dependencies
+
+
+
 
 ####   Version 1.3.0 (2026-01-12)
 

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'codeinwp/webcraftic-updates-manager',
-        'pretty_version' => 'v1.3.0',
-        'version' => '1.3.0.0',
-        'reference' => 'd39184514e5ad0cad347c4e85bc25ab7b10a8e6d',
+        'pretty_version' => 'v1.3.1',
+        'version' => '1.3.1.0',
+        'reference' => '95ed167da7c2a67ebdd71e12488b9220ac384b2e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'codeinwp/webcraftic-updates-manager' => array(
-            'pretty_version' => 'v1.3.0',
-            'version' => '1.3.0.0',
-            'reference' => 'd39184514e5ad0cad347c4e85bc25ab7b10a8e6d',
+            'pretty_version' => 'v1.3.1',
+            'version' => '1.3.1.0',
+            'reference' => '95ed167da7c2a67ebdd71e12488b9220ac384b2e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
