@@ -4,11 +4,13 @@
  * Plugin URI: https://wordpress.org/plugins/webcraftic-updates-manager/
  * Description: Manage all your WordPress updates, automatic updates, logs, and loads more.
  * Author: Themeisle
- * Version: 1.3.2
+ * Version: 1.3.3
  * Text Domain: webcraftic-updates-manager
  * Domain Path: /languages/
  * Author URI: https://themeisle.com
  * Framework Version: FACTORY_483_VERSION
+ * WordPress Available: yes
+ * Requires License: no
  */
 
 // Exit if accessed directly
@@ -58,21 +60,12 @@ $wupm_plugin_info = [
 	'subscribe_widget' => true,
 	'subscribe_settings' => ['group_id' => '105408901'],
 
-	// PLUGIN ADVERTS
-	'render_adverts' => true,
-	'adverts_settings' => [
-		'dashboard_widget' => true, // show dashboard widget (default: false)
-		'right_sidebar' => true, // show adverts sidebar (default: false)
-		'notice' => true, // show notice message (default: false)
-	],
-
 	// FRAMEWORK MODULES
 	'load_factory_modules' => [
 		['libs/factory/bootstrap', 'factory_bootstrap_485', 'admin'],
 		['libs/factory/forms', 'factory_forms_483', 'admin'],
 		['libs/factory/pages', 'factory_pages_483', 'admin'],
-		['libs/factory/templates', 'factory_templates_137', 'all'],
-		['libs/factory/adverts', 'factory_adverts_162', 'admin']
+		['libs/factory/templates', 'factory_templates_137', 'all']
 	]
 ];
 
