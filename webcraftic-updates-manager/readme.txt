@@ -4,7 +4,7 @@ Contributors: themeisle
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2
 
 Disable updates and automatic updates for WordPress core, plugins, and themes, with the option to disable plugin or theme updates individually.
@@ -88,6 +88,14 @@ Yes. When you disable automatic updates only, WordPress will still show availabl
 3. Disable theme updates individually
 
 == Changelog ==
+
+#####   Version 1.3.5 (2026-11-17)
+
+- Enhanced security
+- Updated dependencies
+
+
+
 
 #####   Version 1.3.4 (2026-10-19)
 
